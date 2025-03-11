@@ -1,4 +1,3 @@
-#!/bin/sh
 args="$@"
 
 set -e
