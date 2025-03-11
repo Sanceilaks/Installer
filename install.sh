@@ -1,4 +1,7 @@
-#!/bin/sh
+#!/bin/env sh
+
+args="$@"
+
 set -e
 
 if [ "$(id -u)" -eq 0 ]; then
@@ -22,10 +25,10 @@ chmod +x "$outfile"
 
 if command -v sudo >/dev/null; then
   echo "Running with sudo"
-  sudo env "$@" "$outfile"
+  sudo env "$@" "$outfile" $args
 elif command -v doas >/dev/null; then
   echo "Running with doas"
-  doas env "$@" "$outfile"
+  doas env "$@" "$outfile" $args
 else
   echo "Neither sudo nor doas were found. Please install either of them to proceed."
 fi
