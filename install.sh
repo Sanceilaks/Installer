@@ -1,5 +1,4 @@
-#!/bin/env sh
-
+#!/bin/sh
 args="$@"
 
 set -e
